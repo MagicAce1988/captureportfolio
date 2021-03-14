@@ -1,4 +1,4 @@
-const FaqSection = () => {
+const FaqSection = ({ ...props }) => {
   const questions = [
     {
       question: 'How do I Start?',
