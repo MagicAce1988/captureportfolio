@@ -1,3 +1,5 @@
+import { Faq } from './FaqSection.styled';
+
 const FaqSection = ({ ...props }) => {
   const questions = [
     {
@@ -30,7 +32,7 @@ const FaqSection = ({ ...props }) => {
     },
   ];
   return (
-    <div className="faq">
+    <Faq>
       <h2>
         Any Questions? <span>FAQ</span>
       </h2>
@@ -44,7 +46,7 @@ const FaqSection = ({ ...props }) => {
           </div>
         </div>
       ))}
-    </div>
+    </Faq>
   );
 };
 

@@ -3,49 +3,58 @@ import diaphragm from '../../img/diaphragm.svg';
 import money from '../../img/money.svg';
 import teamwork from '../../img/teamwork.svg';
 import home2 from '../../img/home2.png';
+import { Description, Image } from '../../CommonStyles.styled';
+import { Card, Cards, Services } from './ServicesSection.styled';
 
 const ServicesSection = ({ ...props }) => {
+  const cards = [
+    {
+      icon: clock,
+      alt: 'clock',
+      title: 'Efficient',
+      text: 'Lorem ipsum dolor sit amet.',
+    },
+    {
+      icon: teamwork,
+      alt: 'teamwork',
+      title: 'Teamwork',
+      text: 'Lorem ipsum dolor sit amet.',
+    },
+    {
+      icon: diaphragm,
+      alt: 'diaphragm',
+      title: 'Diaphragm',
+      text: 'Lorem ipsum dolor sit amet.',
+    },
+    {
+      icon: money,
+      alt: 'money',
+      title: 'Money',
+      text: 'Lorem ipsum dolor sit amet.',
+    },
+  ];
   return (
-    <div className="services">
-      <div className="description">
+    <Services>
+      <Description>
         <h2>
           High <span>quality</span> services
         </h2>
-        <div className="cards">
-          <div className="card">
-            <div className="icon">
-              <img src={clock} alt="clock" />
-              <h3>Efficient</h3>
-            </div>
-            <p>Lorem ipsum dolor sit amet.</p>
-          </div>
-          <div className="card">
-            <div className="icon">
-              <img src={teamwork} alt="teamwork" />
-              <h3>Teamwork</h3>
-            </div>
-            <p>Lorem ipsum dolor sit amet.</p>
-          </div>
-          <div className="card">
-            <div className="icon">
-              <img src={diaphragm} alt="diaphragm" />
-              <h3>Diaphragm</h3>
-            </div>
-            <p>Lorem ipsum dolor sit amet.</p>
-          </div>
-          <div className="card">
-            <div className="icon">
-              <img src={money} alt="money" />
-              <h3>Money</h3>
-            </div>
-            <p>Lorem ipsum dolor sit amet.</p>
-          </div>
-        </div>
-      </div>
-      <div className="image">
+        <Cards>
+          {cards.map(({ icon, alt, title, text }) => (
+            <Card>
+              <div className="icon">
+                <img src={icon} alt={alt} />
+                <h3>{title}</h3>
+              </div>
+              <p>{text}</p>
+            </Card>
+          ))}
+        </Cards>
+      </Description>
+      <Image>
         <img src={home2} alt="digital camera" />
-      </div>
-    </div>
+      </Image>
+    </Services>
   );
 };
 
