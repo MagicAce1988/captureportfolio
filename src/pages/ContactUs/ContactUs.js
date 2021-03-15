@@ -1,8 +1,7 @@
 import React from 'react';
-import { Container } from './ContactUs.styled';
 
 const ContactUs = ({ ...props }) => {
-  return <Container {...props}>Contact Us</Container>;
+  return <div {...props}>Contact Us</div>;
 };
 
 export default ContactUs;
