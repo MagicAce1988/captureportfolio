@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router';
 import { movieState } from '../../movieState';
+import { pageAnimation } from '../../animation';
 import {
   Awards,
   Detail,
@@ -24,7 +25,13 @@ const MovieDetail = ({ ...props }) => {
   return (
     <>
       {movie && (
-        <Detail {...props}>
+        <Detail
+          variants={pageAnimation}
+          initial="hidden"
+          animate="show"
+          exit="exit"
+          {...props}
+        >
           <Headline position={movie.imageFocusPoint}>
             <h2>{movie.title}</h2>
             <img src={movie.mainImg} alt={movie.title} />

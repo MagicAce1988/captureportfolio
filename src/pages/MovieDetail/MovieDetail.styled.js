@@ -1,6 +1,7 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-export const Detail = styled.div`
+export const Detail = styled(motion.div)`
   color: white;
 `;
 
