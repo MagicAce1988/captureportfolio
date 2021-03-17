@@ -12,7 +12,7 @@ import {
 const MovieDetail = ({ ...props }) => {
   const history = useHistory();
   const [movie, setMovie] = useState(null);
-  const [movies, setMovies] = useState(movieState);
+  const [movies] = useState(movieState);
   const url = history.location.pathname;
   const { id } = useParams(url);
 
