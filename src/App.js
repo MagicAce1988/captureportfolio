@@ -1,6 +1,6 @@
 import GlobalStyle from './GlobalStyle.styled';
 import { Nav } from './components';
-import { AboutUs, ContactUs, OurWork } from './pages';
+import { AboutUs, ContactUs, OurWork, MovieDetail } from './pages';
 import { Route, Switch } from 'react-router';
 
 function App() {
@@ -12,8 +12,11 @@ function App() {
         <Route path="/" exact>
           <AboutUs />
         </Route>
-        <Route path="/work">
+        <Route path="/work" exact>
           <OurWork />
+        </Route>
+        <Route path="/work/:id">
+          <MovieDetail />
         </Route>
         <Route path="/contact">
           <ContactUs />
