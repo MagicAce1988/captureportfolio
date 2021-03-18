@@ -1,7 +1,7 @@
 import home1 from '../../img/home1.png';
 import { Layout, Description, Hide, Image } from '../../CommonStyles.styled';
 import { motion } from 'framer-motion';
-import { fade, photoAnimation, titleAnimation } from '../../animation';
+import { fade, photoAnimation2, titleAnimation } from '../../animation';
 import { Wave } from '..';
 
 const AboutSection = ({ ...props }) => {
@@ -29,7 +29,9 @@ const AboutSection = ({ ...props }) => {
       </Description>
       <Image>
         <motion.img
-          variants={photoAnimation}
+          variants={photoAnimation2}
+          initial="hidden"
+          animate="show"
           src={home1}
           alt="guy with a camera"
         />
