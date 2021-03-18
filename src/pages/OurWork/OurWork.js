@@ -1,8 +1,24 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { movieState } from '../../movieState';
-import { Movie, Work } from './OurWork.styled';
-import { pageAnimation } from '../../animation';
+import {
+  Hide,
+  Movie,
+  Work,
+  Frame1,
+  Frame2,
+  Frame3,
+  Frame4,
+} from './OurWork.styled';
+import {
+  fade,
+  lineAnimation,
+  pageAnimation,
+  photoAnimation2,
+  slider,
+  sliderContainer,
+} from '../../animation';
+import { motion } from 'framer-motion';
 
 const OurWork = ({ ...props }) => {
   const [movies] = useState(movieState);
@@ -14,12 +30,24 @@ const OurWork = ({ ...props }) => {
       exit="exit"
       style={{ backgroundColor: '#fff' }}
     >
+      <motion.div variants={sliderContainer}>
+        <Frame1 variants={slider} />
+        <Frame2 variants={slider} />
+        <Frame3 variants={slider} />
+        <Frame4 variants={slider} />
+      </motion.div>
       {movies.map((movie) => (
         <Movie key={movie.id} position={movie.imageFocusPoint}>
-          <h2>{movie.title}</h2>
-          <div className="line"></div>
+          <motion.h2 variants={fade}>{movie.title}</motion.h2>
+          <motion.div variants={lineAnimation} className="line"></motion.div>
           <Link to={`work/${movie.id}`}>
-            <img src={movie.mainImg} alt={movie.title} />
+            <Hide>
+              <motion.img
+                variants={photoAnimation2}
+                src={movie.mainImg}
+                alt={movie.title}
+              />
+            </Hide>
           </Link>
         </Movie>
       ))}
