@@ -1,6 +1,9 @@
+import { AnimateSharedLayout, motion } from 'framer-motion';
+import { useState } from 'react';
 import { Faq } from './FaqSection.styled';
 
 const FaqSection = ({ ...props }) => {
+  const [active, setActive] = useState(null);
   const questions = [
     {
       question: 'How do I Start?',
@@ -36,16 +39,24 @@ const FaqSection = ({ ...props }) => {
       <h2>
         Any Questions? <span>FAQ</span>
       </h2>
-      {questions.map((current) => (
-        <div className="question">
-          <h4>{current.question}</h4>
-          <div className="answer">
-            {current.answerParagraphs.map((paragraph) => (
-              <p>{paragraph}</p>
-            ))}
-          </div>
-        </div>
-      ))}
+      <AnimateSharedLayout>
+        {questions.map((current, index) => (
+          <motion.div
+            layout
+            onClick={() => setActive(active === index ? null : index)}
+            className="question"
+          >
+            <motion.h4 layout>{current.question}</motion.h4>
+            {index === active && (
+              <motion.div className="answer">
+                {current.answerParagraphs.map((paragraph) => (
+                  <p>{paragraph}</p>
+                ))}
+              </motion.div>
+            )}
+          </motion.div>
+        ))}
+      </AnimateSharedLayout>
     </Faq>
   );
 };

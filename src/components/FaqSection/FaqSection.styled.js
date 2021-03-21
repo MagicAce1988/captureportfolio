@@ -13,15 +13,8 @@ export const Faq = styled(Layout)`
     font-weight: lighter;
   }
 
-  /* .faq-line {
-    background: #cccccc;
-    height: 0.2rem;
-    margin: 2rem 0rem;
-    width: 100%;
-  } */
-
   .question {
-    padding: 3rem 0rem;
+    padding: 1rem 0rem;
     cursor: pointer;
   }
 
@@ -33,12 +26,12 @@ export const Faq = styled(Layout)`
     }
   }
 
-  .answer:after {
+  .question:after {
     display: block;
     content: '';
     background: #cccccc;
     height: 0.2rem;
-    margin: 2rem 0;
+    margin: 2rem 0 0rem;
     width: 100%;
   }
 `;
