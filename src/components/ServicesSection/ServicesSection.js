@@ -5,8 +5,11 @@ import teamwork from '../../img/teamwork.svg';
 import home2 from '../../img/home2.png';
 import { Description, Image } from '../../CommonStyles.styled';
 import { Card, Cards, Services } from './ServicesSection.styled';
+import { scrollReveal } from '../../animation';
+import { useScroll } from '../../hooks/useScroll';
 
 const ServicesSection = ({ ...props }) => {
+  const [element, controls] = useScroll();
   const cards = [
     {
       icon: clock,
@@ -34,7 +37,7 @@ const ServicesSection = ({ ...props }) => {
     },
   ];
   return (
-    <Services>
+    <Services variants={scrollReveal} animate={controls} ref={element}>
       <Description>
         <h2>
           High <span>quality</span> services

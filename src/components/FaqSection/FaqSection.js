@@ -1,8 +1,11 @@
 import { AnimateSharedLayout, motion } from 'framer-motion';
 import { useState } from 'react';
+import { scrollReveal } from '../../animation';
+import { useScroll } from '../../hooks/useScroll';
 import { Faq } from './FaqSection.styled';
 
 const FaqSection = ({ ...props }) => {
+  const [element, controls] = useScroll();
   const [active, setActive] = useState(null);
   const questions = [
     {
@@ -35,7 +38,7 @@ const FaqSection = ({ ...props }) => {
     },
   ];
   return (
-    <Faq>
+    <Faq variants={scrollReveal} animate={controls} ref={element}>
       <h2>
         Any Questions? <span>FAQ</span>
       </h2>
