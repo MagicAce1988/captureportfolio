@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { movieState } from '../../movieState';
+import { useScroll } from '../../hooks/useScroll';
 import {
   Hide,
   Movie,
@@ -21,6 +22,10 @@ import {
 import { motion } from 'framer-motion';
 
 const OurWork = ({ ...props }) => {
+  const scrollElements = [useScroll(), useScroll()];
+
+  console.log(scrollElements);
+
   const [movies] = useState(movieState);
   return (
     <Work
@@ -36,8 +41,14 @@ const OurWork = ({ ...props }) => {
         <Frame3 variants={slider} />
         <Frame4 variants={slider} />
       </motion.div>
-      {movies.map((movie) => (
-        <Movie key={movie.id} position={movie.imageFocusPoint}>
+      {movies.map((movie, index) => (
+        <Movie
+          ref={index ? scrollElements[index - 1][0] : null}
+          variants={fade}
+          animate={index ? scrollElements[index - 1][1] : {}}
+          key={movie.id}
+          position={movie.imageFocusPoint}
+        >
           <motion.h2 variants={fade}>{movie.title}</motion.h2>
           <motion.div variants={lineAnimation} className="line"></motion.div>
           <Link to={`work/${movie.id}`}>
