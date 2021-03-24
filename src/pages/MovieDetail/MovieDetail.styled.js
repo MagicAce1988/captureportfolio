@@ -25,15 +25,18 @@ export const Headline = styled.div`
 `;
 
 export const Awards = styled.div`
-  min-height: 80vh;
-  margin: 5rem 10rem;
+  min-height: 50vh;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
 `;
 
 export const AwardStyle = styled.div`
-  padding: 5rem;
+  flex: 0.5;
+  min-width: 250px;
+  max-width: 250px;
+  padding: 3rem;
   h3 {
     font-size: 2rem;
   }
