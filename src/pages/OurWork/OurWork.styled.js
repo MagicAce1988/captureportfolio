@@ -8,6 +8,9 @@ export const Work = styled(motion.div)`
   h2 {
     padding: 1rem 0rem;
   }
+  @media (max-width: 1300px) {
+    padding: 1rem;
+  }
 `;
 
 export const Movie = styled(motion.div)`
